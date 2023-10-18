@@ -1,0 +1,142 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0; 
+  font-family: Montserrat, sans-serif;
+  color: #1B2522;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1B2522;
+  padding: .5rem 1rem; 
+}
+
+.nav-top{
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 1;
+}
+
+.cube-body{
+  perspective: 400px;
+}
+
+.cube{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+  left: 35px;
+  top: 10px; 
+
+  color: white;
+  font-size: .5rem;
+  transform-style: preserve-3d;
+}
+
+.cube:hover{
+  animation: spin 6s linear infinite;
+}
+
+.side{
+  --size: 50px; 
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: var(--size);
+  width: var(--size);
+  position: absolute;
+  background-color: hsla(0, 100%, 50%, 1);
+  border: 1px solid hsla(0, 100%, 10%, 1);
+  transform: rotateY(var(--rotate-y, 0)) rotateX(var(--rotate-x, 0)) translateZ(calc(var(--size)/2));
+}
+
+.front{
+  font-weight: bold;
+  text-align: center;
+}
+
+.right{
+  --rotate-y: 90deg; 
+  font-weight: bold;
+  text-align: center;
+}
+
+.left{
+  --rotate-y: -90deg; 
+  font-weight: bold;
+  text-align: center;
+}
+
+.top{
+  --rotate-x: 90deg; 
+  font-weight: bold;
+  text-align: center;
+}
+
+.bottom{
+  --rotate-x: -90deg;
+  font-weight: bold;
+  text-align: center;
+}
+
+.back{
+  --rotate-y: 180deg; 
+  font-weight: bold;
+  text-align: center;
+}
+
+.nav-list {
+  margin: 0; 
+  padding: 0; 
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-list a{
+  text-decoration: none;
+  margin-left: 1rem;
+  color: white; 
+
+  transition: color 100ms;
+}
+
+.nav-list a:hover{
+  color: #CCC;
+}
+
+.btn {
+  background-color: hsl(0, 100%, 50%);
+  color: white; 
+  border-radius: 1000000px;
+  padding: .2em 1em; 
+  text-decoration: none;
+  border: none; 
+  cursor: pointer;
+  font-size: inherit;
+
+  transition: 100ms;
+}
+
+.btn:hover, .btn:focus{
+  background-color: hsl(0, 100%, 40%);
+}
+
+@keyframes spin {
+  0%{
+    transform: rotateX(0) rotateY(0);
+  }
+
+  100%{
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
